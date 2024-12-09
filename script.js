@@ -22,10 +22,11 @@ document.getElementById('login').addEventListener('submit', function(event) {
             document.getElementById('error-message').style.display = 'block';
         } else if (data.success) {
             // successs
-            window.location.href = 'dashboard.html';
+            window.location.href = 'dashboard.php';
         }
     })
     .catch(error => {
         console.error('Error:', error);
     });
 });
+
