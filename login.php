@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['role'] = $user['role'];
-            header('Location: adduser.html'); 
+            header('Location: add_user.html'); 
             exit;
         } else {
             $error = "Invalid password!";
