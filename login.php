@@ -15,20 +15,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    // If user
+    // If user exists
     if ($user) {
         if (hash('sha256', $password) === $user['password']) {
-            // if password is correct start session
+            // if password is correct, start session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['role'] = $user['role'];
-            header('Location: #'); 
+
+            // Send success response
+            echo json_encode(['success' => true]);
             exit;
         } else {
-            $error = "Invalid password!";
+            // Invalid password, send response for JavaScript
+            echo json_encode(['error' => 'Invalid password!']);
+            exit;
         }
     } else {
-        $error = "No user found with that email!";
+        // No user found, send response for JavaScript
+        echo json_encode(['error' => 'No user found with that email!']);
+        exit;
     }
 }
-
+?>
