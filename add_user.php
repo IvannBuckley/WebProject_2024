@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Input sanitization
-    $first_name = htmlspecialchars(trim($_POST['first_name']));
-    $last_name = htmlspecialchars(trim($_POST['last_name']));
+    $first_name = htmlspecialchars(trim($_POST['firstname']));
+    $last_name = htmlspecialchars(trim($_POST['lastname']));
     $email = htmlspecialchars(trim($_POST['email']));
     $password = $_POST['password'];
     $role = $_POST['role'];

@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch users
-$result = $conn->query("SELECT first_name, last_name, email, role, created_at FROM users ORDER BY created_at DESC");
+$result = $conn->query("SELECT firstname, lastname, email, role, created_at FROM users ORDER BY created_at DESC");
 
 echo "<h1>User List</h1>";
 echo "<table border='1'>
@@ -19,7 +19,7 @@ echo "<table border='1'>
 
 while ($row = $result->fetch_assoc()) {
     echo "<tr>
-            <td>{$row['first_name']} {$row['last_name']}</td>
+            <td>{$row['firstname']} {$row['lastname']}</td>
             <td>{$row['email']}</td>
             <td>{$row['role']}</td>
             <td>{$row['created_at']}</td>
