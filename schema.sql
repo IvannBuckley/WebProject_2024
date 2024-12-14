@@ -47,4 +47,4 @@ CREATE TABLE `notes` (
 
 -- Insert Admin User with Hashed Password
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `role`, `created_at`)
-VALUES ('Admin', 'User', 'admin@project2.com', SHA2('password123', 256), 'admin', CURRENT_TIMESTAMP);
+VALUES ('Admin', 'User', 'admin@project2.com', SHA2('password123', 256), 'Admin', CURRENT_TIMESTAMP);

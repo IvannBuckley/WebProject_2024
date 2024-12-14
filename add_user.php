@@ -1,5 +1,13 @@
 <?php
-include 'db.php'; // Include the database connection
+include 'db.php';
+
+session_start();
+
+// Check if the logged-in user is an admin
+if ($_SESSION['role'] !== 'Admin') {
+    echo "You do not have permission to add new users.";
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Form handling logic as above
@@ -23,6 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($stmt->rowCount() > 0) {
         echo "User with this email already exists.";
+        exit;
+    }
+
+    // Password validation using regular expression
+    if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', $password)) {
+        echo "Password must be at least 8 characters long, contain at least one number, one lowercase letter, and one uppercase letter.";
         exit;
     }
 
