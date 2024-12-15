@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolphin CRM Dashboard</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="homeScreen.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Container -->
+    <div class="container">
+        <!-- Navigation -->
+        <div class="navigation">
+            <ul>
+                
+                <li>
+                    <a href="homeScreen.html">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../AddUsers/AddUser.html">
+                        <span class="icon">
+                            <i class="far fa-user-circle"></i>
+                        </span>
+                        <span class="title">Add User</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../New-contact.php">
+                        <span class="icon">
+                            <i class="far fa-address-card"></i>
+                        </span>
+                        <span class="title">New Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../ViewUsers/ViewUsers.php">
+                        <span class="icon">
+                            <i class="fas fa-users"></i>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Logout/Logout.php">
+                        <span class="icon">
+                            <i class="fa fa-sign-out-alt"></i>
+                        </span>
+                        <span class="title">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main active">
+            <!-- Topbar -->
+             
+            <div class="topbar-wrapper">
+                <div class="topbar">
+                    <div class="brand">
+                        <div class="toggle">
+                        <span style="font-size: 24px;">🐬</span>
+                        </i>
+                        </div>
+                        <span class="brand-name">DOLPHIN CRM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Details -->
+            <div class="details">
+                <div class="contacts">
+                    <div class="theHeader">
+                        <h2>DASHBOARD</h2>
+                        <div>
+                            <button class="add-contact-btn">Add New Contact</button>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="container2">
+                        <!-- Filter Section -->
+                        <div class="filter">
+                            <div class="filter-section">
+                                <i class="fa fa-filter"></i>
+                                <label for="contactFilter">Filter:</label>
+                                <select id="contactFilter">
+                                    <option value="all">All Contacts</option>
+                                    <option value="sales">Sales Lead Only</option>
+                                    <option value="support">Support Only</option>
+                                    <option value="assigned">Assigned to Me</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Contact Table Body -->
+                        <div id="contactTableBody">
+                            <!-- Contacts will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.querySelector(".toggle");
+            const navigation = document.querySelector(".navigation");
+            const main = document.querySelector(".main");
+
+            // Toggle Menu
+            toggle.onclick = function () {
+                navigation.classList.toggle("active");
+                main.classList.toggle("active");
+            };
+
+            const contactFilter = document.getElementById("contactFilter");
+            const contactTableBody = document.querySelector("#contactTableBody");
+            const addContactBtn = document.querySelector(".add-contact-btn");
+
+            // Fetch Contacts on Filter Change
+            contactFilter.addEventListener("change", function () {
+                fetchContacts(contactFilter.value);
+            });
+
+            // Navigate to Add New Contact Page
+            addContactBtn.addEventListener("click", function () {
+                window.location.href = '../AddUsers/AddUser.html';
+            });
+
+            // Fetch and Display Contacts
+            function fetchContacts(filter) {
+                fetch(`http://localhost/info2180-finalproject/Dolphin_CRM_Project1(draft2)/dashboard.php?filter=${filter}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        contactTableBody.innerHTML = data;
+                        attachViewContactListeners(); // Add listeners for dynamic buttons
+                    })
+                    .catch(error => console.error("Error fetching contacts:", error));
+            }
+
+            // Attach Event Listeners to View Contact Buttons
+            function attachViewContactListeners() {
+                const viewContactBtns = document.querySelectorAll("#contactBtn");
+                viewContactBtns.forEach(btn => {
+                    btn.addEventListener("click", function () {
+                        const contactId = this.getAttribute("current-contact-id");
+                        viewContactDetails(contactId);
+                    });
+                });
+            }
+
+            // View Contact Details
+            function viewContactDetails(contactId) {
+                window.location.href = `../full-contact/full-contact.html?contact_id=${contactId}`;
+            }
+
+            // Initial Fetch of All Contacts
+            fetchContacts("all");
+        });
+    </script>
+</body>
+
+</html>

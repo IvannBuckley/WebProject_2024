@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Check if user exists
     if ($user) {
+<<<<<<< .merge_file_bu9KTJ
         // If the user is the special admin account
         if ($email === 'admin@project2.com') {
             // Verify using SHA256
@@ -29,6 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 echo json_encode(['error' => 'Invalid admin password!']);
             }
+=======
+        if (hash('sha256', $password) === $user['password']) {
+            // if password is correct start session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['role'] = $user['role'];
+            header('Location: add_user.html'); 
+            exit;
+>>>>>>> .merge_file_f7iMD9
         } else {
             // For all other users, verify with password_hash
             if (password_verify($password, $user['password'])) {
