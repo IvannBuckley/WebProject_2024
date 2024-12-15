@@ -24,6 +24,8 @@ CREATE TABLE `contacts` (
     `lastname` varchar(255) NOT NULL default '',
     `email` varchar(255) NOT NULL default '',
     `telephone` varchar(255) NOT NULL default '',
+    `company` varchar(255) NOT NULL default '',
+    `type` varchar(255) NOT NULL default '',
     `assigned_to` int(11) NOT NULL,
     `created_by` int(11) NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
