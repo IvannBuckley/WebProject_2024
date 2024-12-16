@@ -36,8 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['firstname'] = $user['firstname'];
             $_SESSION['role'] = $user['role'];
-            header('Location: add_user.html'); 
-            exit;
+            header('Location: add_user.html');
+            echo json_encode(['success' => true]);
+
 >>>>>>> .merge_file_f7iMD9
         } else {
             // For all other users, verify with password_hash

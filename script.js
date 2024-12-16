@@ -22,7 +22,7 @@ document.getElementById('login').addEventListener('submit', function(event) {
             document.getElementById('error-message').style.display = 'block';
         } else if (data.success) {
             // successs
-            window.location.href = 'dashboard.php';
+            window.location.href = 'http://localhost/WebProject_2024/homeScreen.php';
         }
     })
     .catch(error => {

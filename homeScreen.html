@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../AddUsers/AddUser.html">
+                    <a href="http://localhost/WebProject_2024/add_user.php">
                         <span class="icon">
                             <i class="far fa-user-circle"></i>
                         </span>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../New-contact.php">
+                    <a href="http://localhost/WebProject_2024/addContact">
                         <span class="icon">
                             <i class="far fa-address-card"></i>
                         </span>
@@ -42,7 +42,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../ViewUsers/ViewUsers.php">
+                    <a href="http://localhost/WebProject_2024/view_users.php
+">
                         <span class="icon">
                             <i class="fas fa-users"></i>
                         </span>
@@ -50,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../Logout/Logout.php">
+                    <a href="http://localhost/WebProject_2024/logout.php">
                         <span class="icon">
                             <i class="fa fa-sign-out-alt"></i>
                         </span>
@@ -134,12 +135,12 @@
 
             // Navigate to Add New Contact Page
             addContactBtn.addEventListener("click", function () {
-                window.location.href = '../AddUsers/AddUser.html';
+                window.location.href = 'http://localhost/WebProject_2024/add_user.html';
             });
 
             // Fetch and Display Contacts
             function fetchContacts(filter) {
-                fetch(`http://localhost/info2180-finalproject/Dolphin_CRM_Project1(draft2)/dashboard.php?filter=${filter}`)
+                fetch(`http://localhost/WebProject_2024/homeScreen.php?filter=${filter}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -166,7 +167,7 @@
 
             // View Contact Details
             function viewContactDetails(contactId) {
-                window.location.href = `../full-contact/full-contact.html?contact_id=${contactId}`;
+                window.location.href = `http://localhost/WebProject_2024/addContact.html?contact_id=${contactId}`;
             }
 
             // Initial Fetch of All Contacts
