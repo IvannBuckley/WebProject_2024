@@ -10,67 +10,57 @@
 <body>
     <div class="container">
         <!-- Sidebar -->
-    <div class="navigation">
-        <ul>
-            <li>
-                <a href="../homeScreen.html">
-                    <span class="icon">
-                        <i class="fa fa-dashboard"> </i>
-                    </span>
-                    <span class="title">Home Screen</span>
-                </a>
-            </li>
-            <li>
-                <a href="../http://localhost/WebProject_2024/addContact.php">
-                    <span class="icon">
-                        <i class="far fa-user-circle "> </i>
-                    </span>
-                    <span class="title">New Contact</span>
-                </a>
-            </li>
-            <li>
-                <a href="../ViewUsers/ViewUsers.php">
-                    <span class="icon">
-                        <i class=" fas fa-users "> </i>
-                    </span>
-                    <span class="title">Users</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Logout/Logout.php">
-                    <span class="icon">
-                        <i class="fa fa-sign-out "> </i>
-                    </span>
-                    <span class="title">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="main active">
-        <div class="topbar-wrapper">
-            <div class="topbar">
-                <div class="brand">
-                    <div class="toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                    <span class="brand-name"> 🐬 DOLPHIN CRM </span>
-                </div>
-            </div>
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="../homeScreen.html">
+                        <span class="icon">
+                            <i class="fa fa-dashboard"> </i>
+                        </span>
+                        <span class="title">Home Screen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../http://localhost/WebProject_2024/addContact.php">
+                        <span class="icon">
+                            <i class="far fa-user-circle "> </i>
+                        </span>
+                        <span class="title">New Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../ViewUsers/ViewUsers.php">
+                        <span class="icon">
+                            <i class=" fas fa-users "> </i>
+                        </span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Logout/Logout.php">
+                        <span class="icon">
+                            <i class="fa fa-sign-out "> </i>
+                        </span>
+                        <span class="title">Logout</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-    
-        <!-- Main content -->
-        <div class="content details">
- <div class="topbar">
+
+        <!-- Main Content -->
+        <div class="main active">
+            <div class="topbar-wrapper">
+                <div class="topbar">
                     <div class="brand">
                         <div class="toggle">
                             <i class="fas fa-bars"></i>
                         </div>
-                        <span class="brand-name">🐬 DOLPHIN CRM</span>
+                        <span class="brand-name"> 🐬 DOLPHIN CRM </span>
                     </div>
                 </div>
             </div>
 
-            <!-- Form for New Contact -->
+            <!-- Main content area -->
             <div class="content details">
                 <h2>New Contact</h2>
                 <form action="/submit-contact" method="POST">
@@ -110,13 +100,13 @@
                 </form>
             </div>
         </div>
-    <div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <p>Copyright @2024 Dolphin CRM</p>
     </footer>
-    </div>
-</div>
+
     <script src="./addContact.js"></script>
 </body>
 </html>
-
