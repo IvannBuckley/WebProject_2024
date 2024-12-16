@@ -60,23 +60,63 @@
     
         <!-- Main content -->
         <div class="content details">
-    
+ <div class="topbar">
+                    <div class="brand">
+                        <div class="toggle">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <span class="brand-name">🐬 DOLPHIN CRM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form for New Contact -->
+            <div class="content details">
+                <h2>New Contact</h2>
+                <form action="/submit-contact" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Telephone</label>
+                        <input type="text" id="telephone" name="telephone" placeholder="Enter telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Enter company">
+                    </div>
+                    <div class="form-group">
+                        <label for="assigned-to">Assigned To</label>
+                        <select id="assigned-to" name="assigned-to">
+                            <option value="andy-bernard">Andy Bernard</option>
+                            <option value="john-doe">John Doe</option>
+                            <!-- Add more options here -->
+                        </select>
+                    </div>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
         </div>
-    </div>
-    
-    
-    </div>
-    </div> 
-
-
+    <div>
     <footer>
         <p>Copyright @2024 Dolphin CRM</p>
     </footer>
-
+    </div>
+</div>
     <script src="./addContact.js"></script>
 </body>
 </html>
-
-
-
 
